@@ -1,24 +1,17 @@
 import _ from "lodash";
-import "./style.css";
-import Logo from "./logo.png";
-import Data from "./data.xml";
+import printMe from "./print.js";
 
 function component() {
-  let element = document.createElement("div");
+  const element = document.createElement("div");
+  const btn = document.createElement("button");
 
   // Lodash, now imported by this script
   element.innerHTML = _.join(["Hello", "webpack"], " ");
-  element.classList.add("hello");
 
-  // Add the image to our existing div
-  var logo = new Image();
-  logo.src = Logo;
-  logo.width = 150;
-  logo.height = 50;
+  btn.innerHTML = "Click me and check the console!";
+  btn.onclick = printMe;
 
-  element.appendChild(logo);
-
-  console.log(Data);
+  element.appendChild(btn);
 
   return element;
 }
